@@ -1,0 +1,25 @@
+Description
+
+Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+
+Subscribe to see which companies asked this question.
+
+==============
+
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        map<int,int> mymap;
+        vector<int>::iterator it;
+        for (it=nums.begin();it!=nums.end();it++)
+        {
+           if ( mymap.find(*it)==mymap.end())
+           {
+               mymap[(*it)]=(*it);
+           }
+           else 
+                return true;
+        }
+        return false;
+    }
+};
