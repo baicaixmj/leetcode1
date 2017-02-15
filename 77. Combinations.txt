@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> a;
+        vector<int> vi;
+        vi.resize(k);
+        mycombine(a,vi,n,k,k);
+        return a;
+    }
+    void  mycombine(vector<vector<int>> &a,vector<int>&vi,int n, int k, int max){
+        if (k==0){
+            a.push_back(vi);
+            return ;
+        }
+        if (n<=0||n<k) return;
+        vi[k-1]=n;
+        mycombine(a, vi, n-1, k-1, max);
+        mycombine(a, vi, n-1, k, max);
+    }
+};
